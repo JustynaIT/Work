@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+      <br>
+        <div class="row">
+          <div class="col-sm-8">
+            <h3>{{project.name}} </h3>
+          </div>
+          <div class="col-sm-4">
+            <button (click)="save()" class="btn btn-info btn-sm">Save</button>
+          </div>
+        </div>
+       <!-- <router-outlet></router-outlet>-->
+       <div class="scrol">
+        <app-first-section 
+        *ngIf="isShow.first" 
+        [project]="project" 
+        (section)="change($event)"
+      ></app-first-section>
+      <app-second-section *ngIf="isShow.second" [project]="project" (section)="change($event)"></app-second-section>
+      <app-third-section *ngIf="isShow.third" [project]="project" (section)="change($event)"></app-third-section>
+      <app-fourth *ngIf="isShow.fourth" [project]="project" (section)="change($event)"></app-fourth>
+      <app-final-section *ngIf="isShow.final" [project]="project" (section)="change($event)"></app-final-section>
+    
+       </div>
+       
+      </div>
+      <div class="col-sm-8">
+        <app-preview [project]="project"></app-preview>
+      </div>
+    </div>
+  </div>

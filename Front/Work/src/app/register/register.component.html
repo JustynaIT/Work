@@ -1,0 +1,40 @@
+<div class="container">
+    <form [formGroup]="RegistrationForm" (ngSubmit)="onSubmit(RegistrationForm)">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="col-sm-12 form-group">
+                    <br><br>
+                    <label>Login:</label><input class="form-control" name="login" formControlName="login">
+                </div>
+                <div class="col-sm-12">
+                    <p class="alert alert-danger" *ngIf="formErrors.login">{{ formErrors.login }}</p>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label>Email:</label><input class="form-control" name="email" type="email" formControlName="email">
+                </div>
+                <div class="col-sm-12">
+                    <p class="alert alert-danger" *ngIf="formErrors.email">{{ formErrors.email }}</p>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label>Password:</label><input class="form-control"  type="password" name="password" formControlName="password">
+                </div>
+                <div class="col-sm-12">
+                    <p class="alert alert-danger" *ngIf="formErrors.password">{{ formErrors.password }}</p>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label>Confirm Password:</label><input class="form-control" name="passwordConfirm" type="password" formControlName="passwordConfirm">
+                </div>    
+                <div class="col-sm-12">
+                    <p class="alert alert-danger" *ngIf="formErrors.passwordConfirm">{{ formErrors.passwordConfirm }}</p>
+                </div>
+                <div class="col-sm-12">
+                    <button class="btn btn-success" type="submit">Send</button>
+                </div><br>
+                <div class="col-sm-12">
+                    <p>  You already have an account, log in.</p>
+                        <button routerLink="/" type="button" class="btn btn-info mr-3">Login</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

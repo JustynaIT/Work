@@ -1,0 +1,57 @@
+<br>
+<div class="progress">
+    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+        style="width:60%">
+        60%
+    </div>
+</div>
+<br>
+<div class="form-group" [formGroup]="thirdForm">
+    <label for="language">Heading:</label>
+    <input formControlName="heading" type="text" class="form-control">
+
+    <label for="language">Description:</label>
+    <input formControlName="description" type="text" class="form-control">
+
+    <p for="language">Add background:</p>
+    <!-- <div class="input-group mb-3">
+        <div class="custom-file">
+            <input formControlName="image" (change)='openFile($event)' type="file" class="custom-file-input" id="inputGroupFile01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+    </div> -->
+
+    <label class=" p-2">
+        <input formControlName="image" class="custom-control-input"
+            value="https://cdn.pixabay.com/photo/2016/11/23/15/06/wooden-floor-1853409_960_720.jpg" 
+            type="radio" 
+            id="1"
+            name="image" >
+        <img class='image' src="https://cdn.pixabay.com/photo/2016/11/23/15/06/wooden-floor-1853409_960_720.jpg">
+      </label>
+      <label class=" p-2">
+        <input formControlName="image" class="custom-control-input"
+            value="https://cdn.pixabay.com/photo/2015/08/04/09/00/backdrop-874452_960_720.jpg" 
+            type="radio" 
+            id="2"
+            name="image" >
+        <img class='image' src="https://cdn.pixabay.com/photo/2015/08/04/09/00/backdrop-874452_960_720.jpg">
+      </label>
+      <br>
+      <br>
+    <button (click)="addButton()" type="button" class="btn btn-info mr-3">Add Button</button>
+    <div formArrayName="buttons">
+        <div class="col-6" *ngFor="let button of buttonsFormGroup.controls; let i = index;">
+            <div [formGroupName]="i">
+                Button {{i+1}} text:
+                <div>
+                    <input class="form-control" formControlName="name" type="text" />
+                    <button (click)="removeButton(i)" type="button" class="btn btn-info mr-3">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button (click)="back()" type="button" class="btn btn-info mr-3">Back</button>
+<button (click)="next()" type="button" class="btn btn-info mr-3">Next</button>
+

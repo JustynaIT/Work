@@ -1,0 +1,30 @@
+<div class="container">
+    <form [formGroup]="LoginForm" (ngSubmit)="onSubmit(LoginForm)">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="col-sm-12 form-group">
+                    <br><br>
+                    <label>Login:</label><input class="form-control" name="Login" formControlName="Login">
+                </div>
+                <div class="col-sm-12">
+                    <p class="alert alert-danger" *ngIf="formErrors.Login">{{ formErrors.Login }}</p>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label>Password:</label><input class="form-control" type="password" name="Password" formControlName="Password">
+                </div>
+                <div class="col-sm-12">
+                    <p class="alert alert-danger" *ngIf="formErrors.Password">{{ formErrors.Password }}</p>
+                </div>                
+                <div class="col-sm-12">
+                    <button class="btn btn-success" [disabled]="!LoginForm.valid" type="submit">Sign In</button>
+                </div>                
+                
+                <div class="col-sm-12 pt-5">
+                    <p> If you don't have an account, register</p>
+                    <button routerLink="/sign-up" type="button" class="btn btn-info mr-3">Registration</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+
+<!--<button *ngFor="let el of projects"
+    [routerLink]="['/project/', el.id]"
+    type="button" 
+    class="btn mr-3">
+    {{el.name}}
+</button>
+<button (click)="createProject()" type="button" class="btn mr-3">+</button>
+ -->
+ <div class="container">
+    <div class="row">
+        <div class="col-8 p-3">
+            <h1>Projects</h1>
+        </div>
+        <div class="col-2 pt-4">
+          <button (click)="logOut()" class="btn btn-info">Log out</button>
+        </div>
+        <div class="card col-3 m-2" *ngFor="let el of projects" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{el.name}}</h5>
+              <a [routerLink]="['/project/', el.id]" class="card-link">Edit</a>
+              <a (click)="remove(el.id)"  class=" pointer card-link">Remove</a>
+            </div>
+          </div>
+          <div (click)="createProject()" class="card pointer col-3 m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">+ Add new project</h5>
+            </div>
+          </div>
+    </div>
+    
+ </div>
